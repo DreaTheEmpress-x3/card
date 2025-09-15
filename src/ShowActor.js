@@ -1,6 +1,12 @@
 import Oic from "./Oic";
+import gsap from "gsap";
+import ChangeContent from "./ChangeContent";
+
 class ShowActors {
   constructor(data) {
+
+    const cc = new ChangeContent();
+
     console.log(data);
 
     const menuContainer = document.createElement("nav");
@@ -17,7 +23,7 @@ class ShowActors {
       menuItem.className = "menuItem";
       menuItem.textContent = el.name;
       menuItemContainer.appendChild(menuItem);
-      menuItem.addEventListener("click", (e)=> this.changeContent(e, el))
+      menuItem.addEventListener("click", (e) => cc.getData(e, el));
     });
 
     const cardContainer = document.createElement("section");
@@ -27,17 +33,19 @@ class ShowActors {
     const card = document.createElement("div");
     card.id = "card";
     cardContainer.appendChild(card);
+    card.addEventListener("click", ()=>{
+      // console.log(this.currentDataindex);
+
+      // console.log(data[this.currentDataindex].information)
+
+      console.log(cc.currentIndex)
+      
+  })
 
     const childCardArray = ["headline", "imagecon", "content", "info"];
 
     const oic = new Oic();
     oic.ce(card, childCardArray, "div");
-
-    // childCardArray.forEach((elementId, index)=>{
-    //     const cardChild = document.createElement('div');
-    //     cardChild.id=elementId;
-    //     card.appendChild(cardChild)
-    // })
 
     const showImg = document.createElement("img");
     showImg.id = "showImg";
@@ -46,29 +54,9 @@ class ShowActors {
 
     const footer = document.createElement("footer");
     footer.id = "footer";
-    document.body.appendChild(footer); 
+    document.body.appendChild(footer);
   } //end constructor
 
-  changeContent(e, data){
-    console.log(e,data)
-
-    //text above image
-    let mHeadline = document.querySelector("#headline");
-    mHeadline.textContent = data.name;
-
-    //image changer
-    const imageSrc = data.img;
-    const imgRef = `../assets/images/${imageSrc}`;
-
-    console.log(imgRef)
-
-    let mImg = document.querySelector("#showImg");
-    mImg.src = imgRef;
-
-    let textContent = document.querySelector("#content");
-    textContent.textContent = data.text;
-
-  }
 } //end class
 
 export default ShowActors;
