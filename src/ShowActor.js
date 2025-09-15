@@ -51,6 +51,23 @@ class ShowActors {
 
   changeContent(e, data){
     console.log(e,data)
+
+    //text above image
+    let mHeadline = document.querySelector("#headline");
+    mHeadline.textContent = data.name;
+
+    //image changer
+    const imageSrc = data.img;
+    const imgRef = `../assets/images/${imageSrc}`;
+
+    console.log(imgRef)
+
+    let mImg = document.querySelector("#showImg");
+    mImg.src = imgRef;
+
+    let textContent = document.querySelector("#content");
+    textContent.textContent = data.text;
+
   }
 } //end class
 
