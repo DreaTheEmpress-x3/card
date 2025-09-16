@@ -1,3 +1,7 @@
+### Prerequisites
+
+Node.js and Npm must be installed for usage if you wanna run and do stuff with it, and Git is needed as well, mind you not Github but Git
+have fun :)
 
 ### ES6 Boilerplate
 
@@ -14,7 +18,7 @@ This ES6 boilerplate provides a basic setup for building modern JavaScript appli
 
 - **Start Development Server:**
   ```bash
-  npm start
+  npm run start
   ```
   Starts the development server using `webpack-dev-server` and opens the application in the default web browser.
 
