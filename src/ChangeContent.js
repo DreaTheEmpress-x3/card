@@ -7,6 +7,8 @@ class ChangeContent {
   }
 
   getData(e, data) {
+    document.querySelector("#info").style.display = "none";
+
     this.currentDataindex = e.currentTarget.dataset.index;
 
     console.log(e, data);
